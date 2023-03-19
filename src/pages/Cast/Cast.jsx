@@ -5,7 +5,7 @@ import { FetchCast } from '../../components/FetchData';
 import { Spinner } from '../../components/Spinner';
 import { CastList } from '../../components/CastList/CastList';
 
-export const Cast = () => {
+const Cast = () => {
   const [castItems, setCastItems] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -41,3 +41,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

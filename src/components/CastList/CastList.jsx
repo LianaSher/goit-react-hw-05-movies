@@ -21,7 +21,7 @@ CastList.propTypes = {
     PropTypes.shape({
       name: PropTypes.string,
       character: PropTypes.string,
-      cast_id: PropTypes.string,
+      cast_id: PropTypes.number,
       profile_path: PropTypes.string,
     })
   ).isRequired,

@@ -5,7 +5,7 @@ import { Spinner } from '../../components/Spinner';
 import { FetchReviews } from '../../components/FetchData';
 import { ReviewsList } from '../../components/ReviewsList/ReviewsList';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -44,3 +44,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

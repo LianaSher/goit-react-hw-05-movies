@@ -4,7 +4,7 @@ import { Spinner } from '../../components/Spinner';
 import { FetchTrending } from '../../components/FetchData';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -35,3 +35,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;

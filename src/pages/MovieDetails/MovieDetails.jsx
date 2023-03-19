@@ -10,7 +10,7 @@ import {
 import { FetchSingleMovie, IMAGE_URL } from '../../components/FetchData';
 import noImage from '../../images/noImage.jpg';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [singleMovie, setSingleMovie] = useState({});
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -82,3 +82,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

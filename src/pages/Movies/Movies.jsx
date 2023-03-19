@@ -7,7 +7,7 @@ import { FetchSearchMovie } from '../../components/FetchData';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
-export const SearchMovies = () => {
+const SearchMovies = () => {
   const [moviesItems, setMoviesItems] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -45,3 +45,5 @@ export const SearchMovies = () => {
     </>
   );
 };
+
+export default SearchMovies;
