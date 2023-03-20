@@ -10,6 +10,17 @@ import {
 import { FetchSingleMovie, IMAGE_URL } from '../../components/FetchData';
 import noImage from '../../images/noImage.jpg';
 
+import {
+  MovieContainer,
+  Image,
+  Info,
+  Title,
+  TextContent,
+  SubTitle,
+  GoBackBtn,
+  ItemLink,
+} from '../MovieDetails/MovieDetails.styled';
+
 const MovieDetails = () => {
   const [singleMovie, setSingleMovie] = useState({});
   const [error, setError] = useState('');
@@ -45,39 +56,44 @@ const MovieDetails = () => {
       {loading && <p>...is loading</p>}
       {error && <p>somthing wrong</p>}
       {singleMovie && !error && (
-        <div>
-          <img
-            src={poster_path ? `${IMAGE_URL}${poster_path}` : `${noImage}`}
-            alt="poster"
-            width="100"
-          />
-          <div>
-            <h2>{title}</h2>
-            <p>User score: {vote_average}</p>
+        <MovieContainer>
+          <Info>
+            <Image
+              src={poster_path ? `${IMAGE_URL}${poster_path}` : `${noImage}`}
+              alt="poster"
+            />
+            <div>
+              <Title>{title}</Title>
+              <TextContent>User score: {vote_average}</TextContent>
 
-            <h3>Overview</h3>
-            <p>{overview}</p>
-            <h3>Genres</h3>
-            <p>{genres && `${genres.map(genre => genre.name).join(',')}`}</p>
-            <button type="button" onClick={goBack}>
-              Go back
-            </button>
+              <SubTitle>Overview</SubTitle>
+              <TextContent>{overview}</TextContent>
+              <SubTitle>Genres</SubTitle>
+              <TextContent>
+                {genres && `${genres.map(genre => genre.name).join(' ')}`}
+              </TextContent>
+              <GoBackBtn type="button" onClick={goBack}>
+                Go back
+              </GoBackBtn>
+            </div>
+          </Info>
+          <div>
+            <SubTitle>Additional information</SubTitle>
+            <ul>
+              <ItemLink>
+                <Link state={{ from }} to={`/movies/${movieId}/cast`}>
+                  Cast
+                </Link>
+              </ItemLink>
+              <ItemLink>
+                <Link state={{ from }} to={`/movies/${movieId}/reviews`}>
+                  Reviews
+                </Link>
+              </ItemLink>
+            </ul>
+            <Outlet />
           </div>
-          <h3>Additional information</h3>
-          <ul>
-            <li>
-              <Link state={{ from }} to={`/movies/${movieId}/cast`}>
-                Cast
-              </Link>
-            </li>
-            <li>
-              <Link state={{ from }} to={`/movies/${movieId}/reviews`}>
-                Reviews
-              </Link>
-            </li>
-          </ul>
-          <Outlet />
-        </div>
+        </MovieContainer>
       )}
     </>
   );

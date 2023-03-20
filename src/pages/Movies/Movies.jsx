@@ -7,6 +7,8 @@ import { FetchSearchMovie } from '../../components/FetchData';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
+import { MoviesContainer } from '../Movies/Movies.styled';
+
 const SearchMovies = () => {
   const [moviesItems, setMoviesItems] = useState([]);
   const [error, setError] = useState('');
@@ -37,12 +39,12 @@ const SearchMovies = () => {
   }, [search]);
 
   return (
-    <>
+    <MoviesContainer>
       <SearchForm onSubmit={onSubmit} />
       {loading && <Spinner />}
       {error && <p>{error}</p>}
       <ul>{moviesItems.length > 0 && <MoviesList movies={moviesItems} />}</ul>
-    </>
+    </MoviesContainer>
   );
 };
 

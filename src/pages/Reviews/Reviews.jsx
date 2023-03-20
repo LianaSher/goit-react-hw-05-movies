@@ -5,6 +5,8 @@ import { Spinner } from '../../components/Spinner';
 import { FetchReviews } from '../../components/FetchData';
 import { ReviewsList } from '../../components/ReviewsList/ReviewsList';
 
+import { ListStyled, Message } from '../Reviews/Reviews.styled';
+
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState('');
@@ -35,11 +37,11 @@ const Reviews = () => {
       {error && <p>{error}</p>}
       {loading && <Spinner />}
       {reviews.length !== 0 ? (
-        <ul>
+        <ListStyled>
           <ReviewsList reviews={reviews} />
-        </ul>
+        </ListStyled>
       ) : (
-        <p>We don't find any review for this movie</p>
+        <Message>We don't find any review for this movie</Message>
       )}
     </>
   );

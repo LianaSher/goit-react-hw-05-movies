@@ -1,6 +1,9 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes, NavLink } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Spinner } from './Spinner';
+import { GlobalStyle } from '../GlobalStyle';
+
+import { Nav, NavList, NavLink } from './App.styled';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const SearchMovies = lazy(() => import('../pages/Movies/Movies'));
@@ -11,16 +14,16 @@ const Reviews = lazy(() => import('../pages/Reviews/Reviews'));
 export const App = () => {
   return (
     <div>
-      <nav>
-        <ul>
+      <Nav>
+        <NavList>
           <li>
-            <NavLink to="/">Home Page</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
             <NavLink to="/Movies">Movies</NavLink>
           </li>
-        </ul>
-      </nav>
+        </NavList>
+      </Nav>
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -31,6 +34,7 @@ export const App = () => {
           </Route>
         </Routes>
       </Suspense>
+      <GlobalStyle />
     </div>
   );
 };

@@ -5,6 +5,8 @@ import { FetchCast } from '../../components/FetchData';
 import { Spinner } from '../../components/Spinner';
 import { CastList } from '../../components/CastList/CastList';
 
+import { List, Message } from '../Cast/Cast.styled';
+
 const Cast = () => {
   const [castItems, setCastItems] = useState([]);
   const [error, setError] = useState('');
@@ -32,11 +34,11 @@ const Cast = () => {
       {error && <p>{error.massage}</p>}
       {loading && <Spinner />}
       {castItems.length !== 0 ? (
-        <ul>
+        <List>
           <CastList castItems={castItems} />
-        </ul>
+        </List>
       ) : (
-        <p>We don't have any information about actors</p>
+        <Message>We don't have any information about actors</Message>
       )}
     </>
   );

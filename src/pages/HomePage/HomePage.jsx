@@ -4,6 +4,8 @@ import { Spinner } from '../../components/Spinner';
 import { FetchTrending } from '../../components/FetchData';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
+import { HomeContainer, Title } from '../HomePage/HomePage.styled';
+
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
@@ -27,12 +29,12 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
-      <h2>Trending today</h2>
+    <HomeContainer>
+      <Title>Trending today</Title>
       {loading && <Spinner />}
       {error && <p>{error}</p>}
       <ul>{movies.length > 0 && <MoviesList movies={movies} />}</ul>
-    </>
+    </HomeContainer>
   );
 };
 
