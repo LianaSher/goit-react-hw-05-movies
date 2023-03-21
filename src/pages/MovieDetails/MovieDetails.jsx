@@ -32,7 +32,7 @@ const MovieDetails = () => {
 
   const navigate = useNavigate();
 
-  const goBack = () => navigate(location.state.from);
+  const goBack = () => navigate(location.state?.from ?? '/movies');
 
   useEffect(() => {
     setLoading(true);
