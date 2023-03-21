@@ -28,12 +28,12 @@ const MovieDetails = () => {
 
   const { movieId } = useParams();
   const location = useLocation();
+  const comeFrom = location.state?.from ?? '/movies';
 
-  const { from } = location.state;
-
+  console.log(comeFrom);
   const navigate = useNavigate();
-  console.log(location.state.from);
-  const goBack = () => navigate(location.state?.from ?? '/movies');
+
+  const goBack = () => navigate(comeFrom);
 
   useEffect(() => {
     setLoading(true);
@@ -82,12 +82,12 @@ const MovieDetails = () => {
             <SubTitle>Additional information</SubTitle>
             <ul>
               <ItemLink>
-                <Link state={{ from }} to={`/movies/${movieId}/cast`}>
+                <Link state={comeFrom} to={`/movies/${movieId}/cast`}>
                   Cast
                 </Link>
               </ItemLink>
               <ItemLink>
-                <Link state={{ from }} to={`/movies/${movieId}/reviews`}>
+                <Link state={comeFrom} to={`/movies/${movieId}/reviews`}>
                   Reviews
                 </Link>
               </ItemLink>
