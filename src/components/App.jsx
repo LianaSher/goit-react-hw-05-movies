@@ -3,8 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Spinner } from './Spinner';
 import { GlobalStyle } from '../GlobalStyle';
 
-import { Nav, NavList, NavLink } from './App.styled';
-
+import { NavBar } from '../components/NavBar/NavBar';
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const SearchMovies = lazy(() => import('../pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
@@ -14,16 +13,7 @@ const Reviews = lazy(() => import('../pages/Reviews/Reviews'));
 export const App = () => {
   return (
     <div>
-      <Nav>
-        <NavList>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/Movies">Movies</NavLink>
-          </li>
-        </NavList>
-      </Nav>
+      <NavBar />
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
