@@ -28,8 +28,9 @@ const MovieDetails = () => {
 
   const { movieId } = useParams();
   const location = useLocation();
-  const { from } = location.state;
 
+  const { from } = location.state;
+  console.log(location.state.from);
   const navigate = useNavigate();
 
   const goBack = () => navigate(location.state?.from ?? '/movies');
