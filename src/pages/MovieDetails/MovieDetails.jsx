@@ -30,9 +30,9 @@ const MovieDetails = () => {
   const location = useLocation();
 
   const { from } = location.state;
-  console.log(location.state.from);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  console.log(location.state.from);
   const goBack = () => navigate(location.state?.from ?? '/movies');
 
   useEffect(() => {
